@@ -1,20 +1,39 @@
 package com.nelioalves.cursomc.dto;
 
+import com.nelioalves.cursomc.services.validation.ClienteInsert;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
 
+    @NotEmpty(message = "Preenchimento obg")
+    @Length(min=5 , max=120 , message = "tamanaho entr 5  e 8 caract ")
     private String nome ;
+
+    @NotEmpty(message = "Preenchimento obg")
+    @Email(message = "email invalido")
     private String email;
+
+    @NotEmpty(message = "Preenchimento obg")
     private String cpfOuCnpj;
     private Integer tipo;
 
+    @NotEmpty(message = "Preenchimento obg")
     private String Logradouro;
+    @NotEmpty(message = "Preenchimento obg")
     private String numero ;
+
     private String complemento;
     private String bairro;
+
+    @NotEmpty(message = "Preenchimento obg")
     private String cep;
 
+    @NotEmpty(message = "Preenchimento obg")
     private String telefone1;
     private String telefone2;
     private String telefone3;
